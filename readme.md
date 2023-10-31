@@ -1,4 +1,4 @@
-## CRUD  AÇÃO JUDICIAL - BACKEND
+## CRUD DE AÇÃO JUDICIAL - BACKEND
 
 Projeto de teste, com o intuito de avaliação no processo seletivo.
 
