@@ -4,7 +4,7 @@ Projeto de teste, com o intuito de avaliação no processo seletivo.
 
 O Objetivo deste projeto é montar um crud contemplando as 4 operações básicas, evidenciando o skill técnico e cumprindo o requisito para o teste do processo seletivo.
 
-A funcionalidadde trata de um cenário onde os CPFs e CNPJs relacionados em uma Ação Judicial serão identificados nesta entidade com o Número do CPF ou CNPJ como chave de pesquisa, Nome e qual o papel dele na Ação Judicial entre as opções :
+A funcionalidadde trata de um cenário onde os CPFs e CNPJs relacionados em uma Ação Judicial serão identificados nesta entidade com o Número do CPF ou CNPJ como chave de pesquisa, Nome e qual o papel dele na Ação Judicial entre :
 
 1 - Réu
 
