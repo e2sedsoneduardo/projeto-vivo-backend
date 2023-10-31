@@ -47,14 +47,14 @@ finalmente, rodar o comando para subir o servidor
         5.1 - Ponto de observação: no nosso cenário simples, estamos passando a estrutura para conexão de banco de dados de forma hardcoded:
         
         
-        ```
+        ´´´
         const db = mysql.createConnection({
             host: 'localhost',
             user: 'root',
             password: 'sua senha',
             database: 'seu database',
         });
-        ```
+       ´´´ 
         
 
         Porém importante ressaltar que em um cenário produtivo, credenciais como essas devem estar fora do código-fonte, sendo guardadas e protegidas por algum mecanismo de guarda de credenciais, como por exemplo o AWS Secrets Manager, o SSM Parameter Store, ou mesmo referenciado por variáveis de ambiente vindas de uma esteira CI/CD, dentre outras abordagens. Usando essa abordagem em algumas plataformas FaaS, como o AWS Lambda, aumenta consideravelmente o tempo de runtime, sendo recomendado o carregamento dessas credenciais fora do handler principal da função.
