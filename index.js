@@ -53,7 +53,7 @@ app.get('/api/acoes', (req, res) => {
 
 app.get('/api/acoes/:cpf_cnpj', (req, res) => {
   const { cpf_cnpj } = req.params;
-  const query = 'SELECT * FROM acao_judicial WHERE cpf_cnpj=?';
+  const query = 'SELECT A.cpf_cnpj, A.nome, B.descricao from acao_judicial A inner join  status_pessoa B on A.status_id = b.status_id WHERE A.cpf_cnpj=?';
   db.query(query, [cpf_cnpj], (err, results) => {
     if (err) {
       console.error(err);
