@@ -24,7 +24,7 @@ db.connect((err) => {
   }
 });
 
-// Define endpoints de API para operações de crud
+// Define endpoints de API para operações de crud de acoes judiciais
 
 app.post('/api/acoes', (req, res) => {
   const { cpf_cnpj, nome, status_id } = req.body;
@@ -50,6 +50,21 @@ app.get('/api/acoes', (req, res) => {
     }
   });
 });
+
+app.get('/api/acoes/:cpf_cnpj', (req, res) => {
+  const { cpf_cnpj } = req.params;
+  const query = 'SELECT * FROM acao_judicial WHERE cpf_cnpj=?';
+  db.query(query, [cpf_cnpj], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Erro ao obter uma ação judicial por cpf ou cnpj!');
+    } else {
+      res.status(200).json(results);
+    }
+  });
+});
+
+
 
 app.put('/api/acoes/:cpf_cnpj', (req, res) => {
   const { cpf_cnpj } = req.params;
@@ -77,6 +92,37 @@ app.delete('/api/acoes/:cpf_cnpj', (req, res) => {
     }
   });
 });
+
+// Define endpoints de API para operações de crud de status de pessoa
+
+
+
+app.get('/api/status', (req, res) => {
+  const query = 'SELECT * FROM status_pessoa';
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Erro ao obter uma ação judicial');
+    } else {
+      res.status(200).json(results);
+    }
+  });
+});
+
+app.get('/api/status/:status_id', (req, res) => {
+  const { status_id } = req.params;
+  const query = 'SELECT * FROM status_pessoa WHERE status_id=?';
+  db.query(query, [status_id], (err, results) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Erro ao obter uma ação judicial por cpf ou cnpj!');
+    } else {
+      res.status(200).json(results);
+    }
+  });
+});
+
+
 
 app.listen(port, () => {
   console.log(`Servidor está rodando na porta: ${port}`);
